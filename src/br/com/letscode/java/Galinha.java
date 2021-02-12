@@ -1,6 +1,6 @@
 package br.com.letscode.java;
 
-public class Galinha implements Animal {
+public class Galinha implements AnimalDomestico {
 
     @Override
     public void comunicar() {

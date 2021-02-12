@@ -14,6 +14,8 @@ public class Aplicacao {
         this.meuQuintal.adicionar(new Cachorro());
         this.meuQuintal.adicionar(new Cachorro());
         this.meuQuintal.adicionar(new Gato());
+        this.meuQuintal.adicionar(new Leao());
+
         this.meuQuintal.listar();
         Animal[] meusPets = this.meuQuintal.getPets();
 

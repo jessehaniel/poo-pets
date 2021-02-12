@@ -26,6 +26,10 @@ public class Quintal {
             System.err.println("O quintal já está cheio!");
             return;
         }
+        if (animal instanceof AnimalSelvagem) {
+            System.err.println("Não é permitido ter AnimalSelvagem no quintal");
+            return;
+        }
         this.pets[qtdAnimais] = animal;
         this.qtdAnimais++;
     }

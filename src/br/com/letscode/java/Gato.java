@@ -1,6 +1,6 @@
 package br.com.letscode.java;
 
-public class Gato implements Animal {
+public class Gato implements AnimalDomestico {
 
     @Override
     public void comunicar() {
