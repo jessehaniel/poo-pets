@@ -10,11 +10,8 @@ public class Aplicacao {
     }
 
     private void iniciar() {
-        this.meuQuintal = new Quintal(5);
-        this.meuQuintal.adicionar(new Cachorro());
-        this.meuQuintal.adicionar(new Cachorro());
-        this.meuQuintal.adicionar(new Gato());
-        this.meuQuintal.adicionar(new Leao());
+        iniciarArrayMeuQuintal();
+        adicionarAnimaisNoMeuQuintal();
 
         this.meuQuintal.listar();
         Animal[] meusPets = this.meuQuintal.getPets();
@@ -24,6 +21,17 @@ public class Aplicacao {
                 animal.comunicar();
             }
         }
+    }
 
+    private void adicionarAnimaisNoMeuQuintal() {
+        try {
+            this.meuQuintal.adicionar(new Cachorro());
+        } catch (QuintalException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void iniciarArrayMeuQuintal() {
+        this.meuQuintal = new Quintal(0);
     }
 }

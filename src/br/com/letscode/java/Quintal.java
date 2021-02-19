@@ -2,13 +2,6 @@ package br.com.letscode.java;
 
 public class Quintal {
 
-    //capacidade máxima total = 5
-//    private Cachorro[] cachorros = new Cachorro[5];
-//    private Gato[] gatos = new Gato[5];
-//    private Galinha[] galinhas = new Galinha[5];
-//    private Pato[] patos = new Pato[5];
-    //É UM -> Animal
-
     private Animal[] pets;
     private int qtdAnimais;
 
@@ -21,17 +14,23 @@ public class Quintal {
         return pets;
     }
 
-    public void adicionar(Animal animal) {
-        if (this.qtdAnimais == this.pets.length) {
-            System.err.println("O quintal já está cheio!");
-            return;
-        }
-        if (animal instanceof AnimalSelvagem) {
-            System.err.println("Não é permitido ter AnimalSelvagem no quintal");
-            return;
-        }
+    public void adicionar(Animal animal) throws QuintalException {
+        validarSeAindaCabemMaisAnimais();
+        validarSeAnimalPermitido(animal);
         this.pets[qtdAnimais] = animal;
         this.qtdAnimais++;
+    }
+
+    private void validarSeAnimalPermitido(Animal animal) throws AnimalNaoPermitidoNoQuintalException {
+        if (animal instanceof AnimalSelvagem) {
+            throw new AnimalNaoPermitidoNoQuintalException();
+        }
+    }
+
+    private void validarSeAindaCabemMaisAnimais() throws QuintalJaEstaCheioException {
+        if (this.qtdAnimais == this.pets.length) {
+            throw new QuintalJaEstaCheioException();
+        }
     }
 
     public void remover(int indice) {
